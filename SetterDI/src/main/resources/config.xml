@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="t1" class="kr.hs.study.beans.TestBean">
+        <property name="data1" value="1"/>
+        <property name="data2" value="1.1"/>
+        <property name="data3" value="true"/>
+        <property name="data4" value="kim"/>
+    </bean>
+
+    <bean id="d1" class="kr.hs.study.beans.DataBean2"/>
+    <bean id="t2" class="kr.hs.study.beans.TestBean2">
+        <property name="data1" ref="d1"/>
+    </bean>
+
+    <bean id="t2" class="kr.hs.study.beans.TestBean2">
+        <property name="data1" ref="data1">
+            <bean id="d1" class="kr.hs.study.beans.DataBean2"/>
+        </property>
+    </bean>
+
+</beans>

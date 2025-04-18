@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="'Welcome GetParameter'"></h1>
+    <a th:href="@{/test1?data1=100&data2=200&data3=300&data3=400}">test1 HttpServletRequest</a><br/>
+    <a th:href="@{/test2?data1=100&data2=200&data3=300&data3=400}">test2 WebRequest</a><br/>
+    <a th:href="@{/test3/100/200/300}">test3 @PathVariable</a><br/>
+    <a th:href="@{/test4?data1=100&data2=200&data3=300&data3=400}">test4 @RequestParam</a>
+    <a th:href="@{/test5?data1=100&data2=200">test5 @ModelAttribute</a>
+</body>
+</html>

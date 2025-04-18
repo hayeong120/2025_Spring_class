@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <main>
+        <div th:if="${login_result}">
+            <h3>로그인 결과</h3>
+            <p th:text="|이름: ${item}|"></p>
+            <p th:text="${login_result}"></p>
+        </div>
+        <div th:if="${score_result}">
+            <h3>성적 결과</h3>
+            <p th:utext="${score_result}"></p>
+        </div>
+        <div th:if="${table_result}">
+            <h3>구구단 결과</h3>
+            <p th:utext="${table_result}"></p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5vw;
+    padding: 10vh 0;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 50px;
+}
+input {
+    margin: 5px 0;
+}
+button {
+    color: white;
+    background-color: black;
+    border-radius: 50vw;
+    padding: 15px;
+}

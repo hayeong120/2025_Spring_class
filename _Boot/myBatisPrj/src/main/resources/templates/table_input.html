@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Table</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <main>
+        <form method="post" action="/ttable_input">
+            단을 입력하세요 <input type="number" name="dan"><br>
+            <button type="submit">입력완료</button>
+        </form>
+    </main>
+</body>
+</html>

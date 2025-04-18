@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="t1" class="kr.hs.study.beans.TestBean">
+        <constructor-arg value="kim"/>
+    </bean>
+    <bean id="t2" class="kr.hs.study.beans.TestBean">
+        <constructor-arg value="5" type="int" index="0"/>
+        <constructor-arg value="5.5" type="double" index="1"/>
+        <constructor-arg value="lee" type="String" index="2"/>
+    </bean>
+
+    <!-- DataBean2의 객체 생성 -->
+    <bean id="d1" class="kr.hs.study.beans.DataBean2"/>
+
+    <bean id="t3" class="kr.hs.study.beans.TestBean2">
+        <constructor-arg ref="d1"/>
+        <constructor-arg ref="d1"/>
+<!--        <constructor-arg>-->
+<!--            <bean class="kr.hs.study.beans.DataBean2"/>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg>-->
+<!--            <bean class="kr.hs.study.beans.DataBean2"/>-->
+<!--        </constructor-arg>-->
+    </bean>
+
+</beans>

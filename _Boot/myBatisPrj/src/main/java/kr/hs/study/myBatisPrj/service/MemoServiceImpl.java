@@ -1,0 +1,33 @@
+package kr.hs.study.myBatisPrj.service;
+
+import kr.hs.study.myBatisPrj.DTO.MemoDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class MemoServiceImpl implements MemoService {
+    @Autowired
+    private MemoService service;
+
+    @Override
+    public void insert(MemoDTO dto) {
+
+    }
+
+    @Override
+    public void update(int idx) {
+
+    }
+
+    @Override
+    public void delete(int idx) {
+
+    }
+
+    @Override
+    public List<MemoDTO> listAll() {
+        return List.of();
+    }
+}
