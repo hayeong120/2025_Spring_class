@@ -21,6 +21,15 @@
             <h3>구구단 결과</h3>
             <p th:utext="${table_result}"></p>
         </div>
+        <div th:if="${memo_result}">
+            <h3>메모장 누적 사용</h3>
+            <div th:each="item:${memo_result}">
+                <p th:text="${item.idx}"></p>
+                <p th:text="${item.writer}"></p>
+                <p th:text="${item.memo}"></p>
+                <p th:text="${item.post_date}"></p>
+            </div>
+        </div>
     </main>
 </body>
 </html>

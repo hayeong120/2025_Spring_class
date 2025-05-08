@@ -4,4 +4,7 @@
     <insert id="insert" parameterType="kr.hs.study.myBatisPrj.DAO.MemoDAO">
         insert into memo(idx, writer, memo) values(memo_seq.nextval, #{writer}, #{memo})
     </insert>
+    <select id="listAll" resultType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
+        select * from memo order by idx desc
+    </select>
 </mapper>
