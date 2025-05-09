@@ -22,13 +22,23 @@
             <p th:utext="${table_result}"></p>
         </div>
         <div th:if="${memo_result}">
-            <h3>메모장 누적 사용</h3>
-            <div th:each="item:${memo_result}">
-                <p th:text="${item.idx}"></p>
-                <p th:text="${item.writer}"></p>
-                <p th:text="${item.memo}"></p>
-                <p th:text="${item.post_date}"></p>
-            </div>
+            <h3>메모장 사용 결과</h3>
+                <table>
+                    <tr>
+                        <th th:text="ID"></th>
+                        <th th:text="Writer"></th>
+                        <th th:text="Memo"></th>
+                        <th th:text="Post_Date"></th>
+                        <th th:text="ETC"></th>
+                    </tr>
+                    <tr th:each="item:${memo_result}">
+                        <td th:text="${item.idx}"></td>
+                        <td th:text="${item.writer}"></td>
+                        <td th:text="${item.memo}"></td>
+                        <td th:text="${item.post_date}"></td>
+                        <td th:text="etc"></td>
+                    </tr>
+                </table>
         </div>
     </main>
 </body>

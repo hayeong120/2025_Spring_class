@@ -14,19 +14,22 @@
             memo <input name="memo"><br/>
             <button type="submit">Done</button>
         </form>
-        <!-- <table>
+        <table>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Writer</th>
-                <th scope="col">Memo</th>
-                <th scope="col">Post_Date</th>
-                <th scope="col">Etc</th>
+                <th th:text="ID"></th>
+                <th th:text="Writer"></th>
+                <th th:text="Memo"></th>
+                <th th:text="Post_Date"></th>
+                <th th:text="ETC"></th>
             </tr>
-            <tr>
-                <td th:text="${item}"></td>
-                <td th:text="${item}"></td>
+            <tr th:each="item:${memo_result}">
+                <td th:text="${item.idx}"></td>
+                <td th:text="${item.writer}"></td>
+                <td th:text="${item.memo}"></td>
+                <td th:text="${item.post_date}"></td>
+                <td th:text="etc"></td>
             </tr>
-        </table> -->
+        </table>
     </main>
 </body>
 </html>

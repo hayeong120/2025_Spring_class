@@ -17,14 +17,17 @@ public class MemoController {
     private MemoService service;
 
     @GetMapping("/memo")
-    public String memo() {
+    public String memo(Model model) {
+        List<MemoDTO> all = service.listAll();
+        model.addAttribute("memo_result", all);
+        System.out.println("size : " + all.size());
         return "memo";
     }
 
     @PostMapping("/memo_input")
     public String insert(MemoDTO dto) {
         service.insert(dto);
-        return "result";
+        return "redirect:/memo";
     }
 
     @GetMapping("/memo/list")
