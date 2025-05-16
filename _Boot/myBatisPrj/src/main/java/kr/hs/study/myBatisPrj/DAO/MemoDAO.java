@@ -8,7 +8,8 @@ import java.util.List;
 @Mapper
 public interface MemoDAO {
     public void insert(MemoDTO dto);
-    public void update(int idx);
+    public void update(MemoDTO dto);
     public void delete(int idx);
     public List<MemoDTO> listAll();
+    public MemoDTO selectOne(int idx);
 }

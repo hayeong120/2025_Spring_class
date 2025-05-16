@@ -45,3 +45,9 @@ table, th:last-child,
 table, td:last-child {
 	border-right: 0;
 }
+.memo_table a:link {
+    color : black;
+}
+.memo_table a:visited {
+    color : black;
+}

@@ -14,7 +14,7 @@
             memo <input name="memo"><br/>
             <button type="submit">Done</button>
         </form>
-        <table>
+        <table class="memo_table">
             <tr>
                 <th th:text="ID"></th>
                 <th th:text="Writer"></th>
@@ -27,7 +27,10 @@
                 <td th:text="${item.writer}"></td>
                 <td th:text="${item.memo}"></td>
                 <td th:text="${item.post_date}"></td>
-                <td th:text="etc"></td>
+                <td>
+                    <a class="b" th:href="@{'/edit/'+${item.idx}}">Update</a>
+                    <a class="b" th:href="@{'/delete/'+${item.idx}}">Delete</a>
+                </td>
             </tr>
         </table>
     </main>

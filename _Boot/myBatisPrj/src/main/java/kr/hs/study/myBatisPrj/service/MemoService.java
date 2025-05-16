@@ -10,11 +10,14 @@ public interface MemoService {
     public void insert(MemoDTO dto);
 
     //2. update
-    public void update(int idx);
+    public void update(MemoDTO dto);
 
     //3. delete
     public void delete(int idx);
 
-    //4. select
+    //4. select : list 전체 가져오기
     public List<MemoDTO> listAll();
+
+    //4. select : list 한 개만 가져오기
+    public MemoDTO selectOne(int idx);
 }
