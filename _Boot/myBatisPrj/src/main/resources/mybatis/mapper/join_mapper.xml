@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.hs.study.myBatisPrj.DAO.JoinDAO">
+    <insert id="insert" parameterType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
+        <!-- insert 실행 전후에 자동 생성되는 값을 가져와서 DTO에 넣는 기능 -->
+        <selectKey keyProperty="idx" resultType="int" order="BEFORE">   <!-- order="BEFORE" : 시퀀스 값을 먼저 조회 -->
+            select user_seq.NEXTVAL FROM dual
+        </selectKey>
+        insert into memo(idx, userId, userPw) values(#{idx}, #{userId}, #{userPw})
+    </insert>
+    <select id="listAll" resultType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
+        select * from userinfo order by idx desc
+    </select>
+    <select id="selectOne" resultType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
+        select * from userinfo where idx=#{idx}
+    </select>
+    <update id="update" parameterType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
+        update userinfo set userId=#{userId}, userPw=#{userPw} where idx=#{idx}
+    </update>
+    <delete id="delete" parameterType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
+        delete from userinfo where idx=#{idx}
+    </delete>
+</mapper>
