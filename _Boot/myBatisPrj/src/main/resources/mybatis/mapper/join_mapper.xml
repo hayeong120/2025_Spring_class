@@ -6,7 +6,7 @@
         <selectKey keyProperty="idx" resultType="int" order="BEFORE">   <!-- order="BEFORE" : 시퀀스 값을 먼저 조회 -->
             select user_seq.NEXTVAL FROM dual
         </selectKey>
-        insert into memo(idx, userId, userPw) values(#{idx}, #{userId}, #{userPw})
+        insert into userinfo(idx, userId, userPw) values(#{idx}, #{userId}, #{userPw})
     </insert>
     <select id="listAll" resultType="kr.hs.study.myBatisPrj.DTO.JoinDTO">
         select * from userinfo order by idx desc

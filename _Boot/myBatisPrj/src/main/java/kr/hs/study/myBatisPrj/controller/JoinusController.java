@@ -24,16 +24,7 @@ public class JoinusController {
     @PostMapping("/join_input")
     public String login_input(JoinDTO dto, Model model) {
         service.insert(dto);
-        System.out.println(dto.getIdx());
         model.addAttribute("join_result", dto);
-        model.addAttribute("generatedIdx", dto.getIdx());
         return "result";
     }
-
-//    @GetMapping("result/{idx}")
-//    public String listAll(@PathVariable("idx") int idx, Model model) {
-//        List<JoinDTO> allList = service.listAll();
-//        model.addAttribute("join_result", allList);
-//        return "redirect:/result";
-//    }
 }
