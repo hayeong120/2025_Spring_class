@@ -13,14 +13,17 @@
             <p th:text="|이름: ${item}|"></p>
             <p th:text="${login_result}"></p>
         </div>
+
         <div th:if="${score_result}">
             <h3>성적 결과</h3>
             <p th:utext="${score_result}"></p>
         </div>
+
         <div th:if="${table_result}">
             <h3>구구단 결과</h3>
             <p th:utext="${table_result}"></p>
         </div>
+
         <div th:if="${memo_result}">
             <h3>메모장 사용 결과</h3>
                 <table>
@@ -39,6 +42,20 @@
                         <td th:text="etc"></td>
                     </tr>
                 </table>
+        </div>
+
+        <div th:if="${join_result}">
+            <h3>회원가입 성공!</h3>
+            <table>
+                <tr>
+                    <th th:text="idx"></th>
+                    <th th:text="ID"></th>
+                </tr>
+                <tr>
+                    <td th:text="${join_result.idx}"></td>
+                    <td th:text="${join_result.userId}"></td>
+                </tr>
+            </table>
         </div>
     </main>
 </body>

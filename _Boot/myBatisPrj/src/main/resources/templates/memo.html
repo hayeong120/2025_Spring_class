@@ -28,8 +28,8 @@
                 <td th:text="${item.memo}"></td>
                 <td th:text="${item.post_date}"></td>
                 <td>
-                    <a class="b" th:href="@{'/edit/'+${item.idx}}">Update</a>
-                    <a class="b" th:href="@{'/delete/'+${item.idx}}">Delete</a>
+                    <a th:href="@{'/edit/'+${item.idx}}">Update</a>
+                    <a th:href="@{'/delete/'+${item.idx}}">Delete</a>
                 </td>
             </tr>
         </table>

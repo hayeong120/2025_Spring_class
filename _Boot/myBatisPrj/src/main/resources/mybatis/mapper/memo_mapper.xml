@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.hs.study.myBatisPrj.DAO.MemoDAO">
-    <insert id="insert" parameterType="kr.hs.study.myBatisPrj.DAO.MemoDAO">
+    <insert id="insert" parameterType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
         insert into memo(idx, writer, memo) values(memo_seq.nextval, #{writer}, #{memo})
     </insert>
     <select id="listAll" resultType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
@@ -13,7 +13,7 @@
     <update id="update" parameterType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
         update memo set writer=#{writer}, memo=#{memo} where idx=#{idx}
     </update>
-    <delete id="delete" parameterType="kr.hs.study.myBatisPrj.DAO.MemoDAO">
+    <delete id="delete" parameterType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
         delete from memo where idx=#{idx}
     </delete>
 </mapper>
