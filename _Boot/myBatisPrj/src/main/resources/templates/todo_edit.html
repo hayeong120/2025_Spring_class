@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+<main>
+  <h1>NOTE MEMO</h1>
+  <form method="post" action="/todo_edit">
+    <input type="hidden" name="visited" th:value="${visited}">
+    <input type="hidden" name="idx" th:value="${edit_one.idx}">
+    password <input type="password" name="password"><br/>
+    content <input type="text" name="content" th:value="${edit_one.content}"><br/>
+    status <input name="status" th:value="${edit_one.status}"><br/>
+    <button type="submit">수정 완료</button>
+  </form>
+  <form method="post" action="/todo_delete">
+    <input type="hidden" name="idx" th:value="${edit_one.idx}">
+    password <input type="password" name="password"><br/>
+    <button type="submit">제거</button>
+  </form>
+</main>
+</body>
+</html>

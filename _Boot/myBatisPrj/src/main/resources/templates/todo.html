@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+  <main>
+    <h1>TODO LIST</h1>
+    <form method="post" action="/todo_input">
+      todo <input type="text" name="content"><br/>
+      수정 비밀번호 <input type="password" name="password"><br/>
+      <input type="hidden" name="status" value=0>
+      <button type="submit">TODO 생성</button>
+    </form>
+
+    <table class="todo_table">
+      <tr>
+        <th th:text="ID"></th>
+        <th th:text="content"></th>
+        <th th:text="status"></th>
+        <th th:text="ETC"></th>
+      </tr>
+      <tr th:each="item:${todo_result}">
+        <td th:text="${item.idx}"></td>
+        <td th:text="${item.content}"></td>
+        <td th:text="${item.status}"></td>
+<!--        <td th:text="${item.post_date}"></td>-->
+        <td>
+          <a th:href="@{'/todo_edit/'+${item.idx}}">Edit</a>
+        </td>
+      </tr>
+    </table>
+  </main>
+</body>
+</html>

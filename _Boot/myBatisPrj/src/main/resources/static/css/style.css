@@ -13,6 +13,7 @@ form {
     border: 1px solid black;
     border-radius: 30px;
     padding: 50px;
+    margin-bottom: 100px;
 }
 input {
     margin: 5px 0;
@@ -27,7 +28,6 @@ button {
 table {
     border: 2px solid #000;
     border-collapse : collapse;
-    margin-top: 100px;
 }
 th, td {
     text-align: left;
@@ -45,9 +45,9 @@ table, th:last-child,
 table, td:last-child {
 	border-right: 0;
 }
-.memo_table a:link {
+table a:link {
     color : black;
 }
-.memo_table a:visited {
+table a:visited {
     color : black;
 }
