@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <main>
+        <h1 th:text="'Hello World!'" />
+        <a th:href="@{/boardForm}">글작성</a>
+        <a th:href="@{/boardList}">글목록</a>
+    </main>
+</body>
+</html>

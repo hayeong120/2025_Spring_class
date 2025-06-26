@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <main>
+    <h1 th:text="'Board List'"></h1>
+
+    <table class="board_table">
+        <tr>
+            <th th:text="'ID'"></th>
+            <th th:text="'Title'"></th>
+            <th th:text="'Writer'"></th>
+            <th th:text="'Post_Date'"></th>
+            <th th:text="'Hits'"></th>
+        </tr>
+        <tr th:each="item:${boardList}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.boardTitle}"></td>
+            <td th:text="${item.boardWriter}"></td>
+            <td th:text="${item.boardCreatedTime}"></td>
+            <td th:text="${item.boardHits}"></td>
+        </tr>
+    </table>
+    </main>
+</body>
+</html>
