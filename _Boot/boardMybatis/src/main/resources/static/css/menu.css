@@ -1,0 +1,17 @@
+body {
+    margin : 0;
+}
+menu {
+    display: flex;
+    gap: 3vw;
+    justify-content: flex-end;
+    background-color: black;
+    padding: 2vh 10vw;
+}
+a:link {
+    text-decoration : none;
+    color : white;
+}
+a:visited {
+    color: white;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+    <main>
+        <h1 th:text="${board.boardTitle}"></h1>
+        <p><strong>Writer:</strong> <span th:text="${board.boardWriter}"></span></p>
+        <p><strong>Posted At:</strong> <span th:text="${#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm')}"></span></p>
+        <p><strong>Hits:</strong> <span th:text="${board.boardHits}"></span></p>
+        <p><strong>Content:</strong> <span th:text="${board.boardContents}"></span></p>
+
+        <button type="button" onclick="listFn()">목록</button>
+        <button type="button" onclick="updateFn()">수정</button>
+        <button type="button" onclick="deleteFn()">삭제</button>
+    </main>
+</body>
+<script th:inline="javascript">
+    const listFn = () => {
+        location.href = "/boardList";
+    }
+
+    const updateFn = () => {
+        const id = [[${board.id}]];
+        location.href = "/board/update?id=" + id;
+    }
+
+    const deleteFn = () => {
+        const id = [[${board.id}]];
+        location.href = "/board/delete/" + id;
+    }
+</script>
+</html>

@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <title>Board List</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <style>
+        .board_table a:link {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <main>
     <h1 th:text="'Board List'"></h1>
 
     <table class="board_table">
         <tr>
-            <th th:text="'ID'"></th>
-            <th th:text="'Title'"></th>
-            <th th:text="'Writer'"></th>
-            <th th:text="'Post_Date'"></th>
-            <th th:text="'Hits'"></th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Writer</th>
+            <th>Post_Date</th>
+            <th>Hits</th>
         </tr>
         <tr th:each="item:${boardList}">
             <td th:text="${item.id}"></td>
-            <td th:text="${item.boardTitle}"></td>
+            <td>
+                <a th:href="@{'/board/' + ${item.id}}"
+                   th:text="${item.boardTitle}"></a>
+            </td>
             <td th:text="${item.boardWriter}"></td>
-            <td th:text="${item.boardCreatedTime}"></td>
+            <td th:text="${#temporals.format(item.boardCreatedTime, 'yyyy-MM-dd HH:mm')}"></td>
             <td th:text="${item.boardHits}"></td>
         </tr>
     </table>

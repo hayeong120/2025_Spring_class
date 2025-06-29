@@ -1,0 +1,27 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Board Form</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
+
+<th:block th:if="${error}">
+  <script th:inline="javascript">
+    alert([[${error}]]);
+  </script>
+</th:block>
+
+<main>
+  <h1 th:text="'Board Update'" />
+
+  <form method="post" th:action="@{'/update/' + ${board.id}}">
+    <input type="text" name="boardWriter" placeholder="작성자" th:value="${board.boardWriter}" required>
+    <input type="password" name="boardPass" placeholder="비밀번호" required>
+    <input type="text" name="boardTitle" placeholder="제목" th:value="${board.boardTitle}" required>
+    <textarea name="boardContents" placeholder="내용을 입력하세요" th:text="${board.boardContents}" required></textarea>
+    <button type="submit">수정</button>
+  </form>
+</main>
+</body>
+</html>

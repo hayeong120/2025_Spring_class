@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="menuFragment">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu</title>
+        <link rel="stylesheet" th:href="@{/css/menu.css}" />
+    </head>
+    <body>
+    <menu>
+        <a th:href="@{/}">홈</a>
+        <a th:href="@{/boardList}">게시판</a>
+        <a th:href="@{/boardForm}">작성하기</a>
+    </menu>
+    </body>
+</th:block>
+</html>

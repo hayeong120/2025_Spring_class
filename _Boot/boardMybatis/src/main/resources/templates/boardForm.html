@@ -6,14 +6,15 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <main>
     <h1 th:text="'Board Form'" />
 
     <form method="post" action="/save">
-        <input type="text" name="boardWriter" placeholder="작성자">
-        <input type="password" name="boardPass" placeholder="비밀번호">
-        <input type="text" name="boardTitle" placeholder="제목">
-        <textarea name="boardContents" placeholder="내용을 입력하세요"></textarea>
+        <input type="text" name="boardWriter" placeholder="작성자" required>
+        <input type="password" name="boardPass" placeholder="비밀번호" required>
+        <input type="text" name="boardTitle" placeholder="제목" required>
+        <textarea name="boardContents" placeholder="내용을 입력하세요" required></textarea>
         <button type="submit">작성</button>
     </form>
     </main>

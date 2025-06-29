@@ -6,10 +6,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
+    <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <main>
-        <h1 th:text="'Hello World!'" />
-        <a th:href="@{/boardForm}">글작성</a>
-        <a th:href="@{/boardList}">글목록</a>
+        <h1 th:text="'Come back Home!'" />
     </main>
 </body>
 </html>
