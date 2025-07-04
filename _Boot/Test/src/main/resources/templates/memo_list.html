@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+  <h1 th:text="'List'"></h1>
+
+  <table class="memo_table">
+    <tr>
+      <th th:text="ID"></th>
+      <th th:text="Writer"></th>
+      <th th:text="Memo"></th>
+      <th th:text="Post_Date"></th>
+      <th th:text="ETC"></th>
+    </tr>
+    <tr th:each="item:${memo_result}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.writer}"></td>
+      <td th:text="${item.memo}"></td>
+      <td th:text="${item.post_date}"></td>
+      <td>
+        <a th:href="@{'/edit/'+${item.id}}">Update</a>
+        <a th:href="@{'/delete/'+${item.id}}">Delete</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

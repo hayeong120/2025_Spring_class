@@ -1,0 +1,64 @@
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10vw;
+    min-height: 80vh;
+}
+
+.title {
+    font-size: 2.5vw;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.row p {
+    margin: 0;
+}
+.writer {
+    font-size: 2.8vh;
+    font-weight: bold;
+    margin-right: 10px !important;
+}
+.hits, .date {
+    color: #505050;
+}
+
+button {
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-size: 2vh;
+}
+.list {
+    align-self: flex-end;
+}
+.button_box {
+    display: flex;
+    gap: 5px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.content {
+    margin: 0 10px;
+}
+
+.footer-box {
+    margin-top: auto;
+    text-align: right;
+}
+
+

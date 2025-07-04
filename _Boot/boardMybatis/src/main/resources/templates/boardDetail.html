@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Board</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/detail.css}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <main>
-        <h1 th:text="${board.boardTitle}"></h1>
-        <p><strong>Writer:</strong> <span th:text="${board.boardWriter}"></span></p>
-        <p><strong>Posted At:</strong> <span th:text="${#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm')}"></span></p>
-        <p><strong>Hits:</strong> <span th:text="${board.boardHits}"></span></p>
-        <p><strong>Content:</strong> <span th:text="${board.boardContents}"></span></p>
+        <h1 th:text="${board.boardTitle}" class="title"></h1>
 
-        <button type="button" onclick="listFn()">목록</button>
-        <button type="button" onclick="updateFn()">수정</button>
-        <button type="button" onclick="deleteFn()">삭제</button>
+        <div class="row header">
+            <div class="column">
+                <div class="row">
+                    <p th:text="${board.boardWriter}" class="writer"></p>
+                    <p class="hits">조회 <span th:text="${board.boardHits}" ></span></p>
+                </div>
+                <p th:text="${#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm')}" class="date"></p>
+            </div>
+            <div class="button_box">
+                <button type="button" onclick="updateFn()">수정</button>
+                <button type="button" onclick="deleteFn()">삭제</button>
+            </div>
+        </div>
+
+        <hr>
+        <p th:text="${board.boardContents}" class="content"></p>
+
+        <div class="footer-box">
+            <hr>
+            <button type="button" onclick="listFn()" class="list">목록</button>
+        </div>
     </main>
 </body>
 <script th:inline="javascript">
@@ -32,7 +46,33 @@
 
     const deleteFn = () => {
         const id = [[${board.id}]];
-        location.href = "/board/delete/" + id;
+        const password = prompt("비밀번호를 입력하세요");
+
+        if (password === null) {
+            return; // 취소 버튼 누른 경우
+        }
+
+        // 비밀번호 입력 후 POST 방식으로 서버로 전송
+        $.ajax({
+            type: "POST",
+            url: "/board/delete-check",
+            data: {
+                id: id,
+                password: password
+            },
+            success: function(response) {
+                if (response === "success") {
+                    alert("삭제되었습니다.");
+                    location.href = "/boardList";
+                } else {
+                    alert("비밀번호가 일치하지 않습니다.");
+                }
+            },
+            error: function() {
+                alert("오류가 발생했습니다.");
+            }
+        });
+        //location.href = "/board/delete/" + id;
     }
 </script>
 </html>

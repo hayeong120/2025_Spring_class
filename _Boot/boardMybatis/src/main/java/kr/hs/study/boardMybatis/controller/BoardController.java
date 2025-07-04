@@ -5,10 +5,7 @@ import kr.hs.study.boardMybatis.service.boardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -74,5 +71,19 @@ public class BoardController {
     public String delete(@PathVariable int id) {
         service.delete(id);
         return "redirect:/boardList";
+    }
+
+    // 삭제 비밀번호 확인
+    @PostMapping("/board/delete-check")
+    @ResponseBody
+    public String deleteCheck(@RequestParam("id") int id, @RequestParam("password") String password) {
+        boardDTO board = service.selectOne(id);
+
+        if (board.getBoardPass().equals(password)) {
+            service.delete(id);
+            return "success";
+        } else {
+            return "fail";
+        }
     }
 }

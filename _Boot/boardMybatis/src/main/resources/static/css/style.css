@@ -1,28 +1,39 @@
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5vw;
-    padding: 10vh 0;
+    margin: 0 10vw;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 30px;
-    padding: 50px;
-    margin-bottom: 100px;
+}
+.board_form {
+    margin-top: 10vh;
 }
 input {
+    height: 5vh;
     margin: 5px 0;
+    font-size: 2.5vh;
+    padding: 5px 10px;
 }
+textarea {
+    height: 20vh;
+    font-size: 2.5vh;
+    margin: 5px 0 30px;
+    padding: 10px;
+    resize: none;
+    font-family: Segoe UI;
+}
+
 button {
     color: white;
     background-color: black;
     border-radius: 50vw;
-    padding: 15px;
+    padding: 15px 2.5vw;
+}
+.form_button {
+    align-self: flex-end;
 }
 
 table {
@@ -50,12 +61,4 @@ table a:link {
 }
 table a:visited {
     color : black;
-}
-
-textarea {
-    width: 180px;
-    height: 100px;
-    margin: 5px 0 30px;
-    resize: none;
-    font-family: Segoe UI;
 }

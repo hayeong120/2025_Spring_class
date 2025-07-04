@@ -6,5 +6,14 @@
 </head>
 <body>
     <h1 th:text="'MEMO'"></h1>
+    <form method="post" action="/memo_save">
+        <label for="writer">Writer</label>
+        <input type="text" id="writer" name="writer" required><br>
+        <label for="memo">Memo</label>
+        <input type="text" id="memo" name="memo" required><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">작성 완료</button>
+    </form>
 </body>
 </html>

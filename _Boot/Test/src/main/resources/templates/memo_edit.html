@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+</head>
+<body>
+  <h1 th:text="'MEMO Edit'"></h1>
+  <form method="post" action="/edit">
+    <input type="hidden" name="id" th:value="${edit.id}">
+    <label for="writer">Writer</label>
+    <input type="text" id="writer" name="writer" th:value="${edit.writer}" required><br>
+    <label for="memo">Memo</label>
+    <input type="text" id="memo" name="memo" th:value="${edit.memo}" required><br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required><br>
+    <button type="submit">작성 완료</button>
+  </form>
+</body>
+</html>

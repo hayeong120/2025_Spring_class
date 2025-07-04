@@ -8,14 +8,14 @@
 <body>
     <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
     <main>
-    <h1 th:text="'Board Form'" />
+    <h1 th:text="'Board Form'" class="board_form" />
 
     <form method="post" action="/save">
         <input type="text" name="boardWriter" placeholder="작성자" required>
         <input type="password" name="boardPass" placeholder="비밀번호" required>
         <input type="text" name="boardTitle" placeholder="제목" required>
-        <textarea name="boardContents" placeholder="내용을 입력하세요" required></textarea>
-        <button type="submit">작성</button>
+        <textarea name="boardContents" placeholder="내용을 입력하세요." required></textarea>
+        <button type="submit" class="form_button">작성</button>
     </form>
     </main>
 </body>
