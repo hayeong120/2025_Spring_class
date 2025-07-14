@@ -22,6 +22,7 @@
             <div class="button_box">
                 <button type="button" onclick="updateFn()">수정</button>
                 <button type="button" onclick="deleteFn()">삭제</button>
+                <button type="button" onclick="listFn()" class="list">목록</button>
             </div>
         </div>
 
@@ -30,8 +31,13 @@
 
         <div class="footer-box">
             <hr>
-            <button type="button" onclick="listFn()" class="list">목록</button>
         </div>
+        <form method="post" action="/commentSave" class="comment-box">
+            <input type="hidden" name="boardId" th:value="${board.id}" />
+            <input type="text" name="commentWriter" placeholder="작성자" required class="comment commentWriter" autocomplete="off">
+            <input type="text" name="commentContents" placeholder="댓글 작성" required class="comment commentContent" autocomplete="off">
+            <button type="submit">댓글 작성</button>
+        </form>
     </main>
 </body>
 <script th:inline="javascript">

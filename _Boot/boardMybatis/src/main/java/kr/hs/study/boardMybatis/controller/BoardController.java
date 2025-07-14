@@ -1,7 +1,9 @@
 package kr.hs.study.boardMybatis.controller;
 
 import kr.hs.study.boardMybatis.DTO.boardDTO;
+import kr.hs.study.boardMybatis.DTO.commentDTO;
 import kr.hs.study.boardMybatis.service.boardService;
+import kr.hs.study.boardMybatis.service.commentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,9 @@ import java.util.List;
 public class BoardController {
     @Autowired
     private boardService service;
+
+    @Autowired
+    private commentService commentService;
 
     @GetMapping("/boardForm")
     public String boardForm() {
@@ -85,5 +90,12 @@ public class BoardController {
         } else {
             return "fail";
         }
+    }
+
+    // 댓글 작성
+    @PostMapping("/commentSave")
+    public String comment(commentDTO commentDto) {
+        commentService.insert(commentDto);
+        return "redirect:/board/" + commentDto.getBoardId();
     }
 }

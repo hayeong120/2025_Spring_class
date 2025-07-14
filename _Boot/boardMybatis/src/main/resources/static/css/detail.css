@@ -61,4 +61,19 @@ hr {
     text-align: right;
 }
 
+.comment-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+.comment {
+    padding: 10px 5px;
+}
+.commentWriter {
+    width: 100px;
+}
+.commentContent {
+    width: 64vw;
+}
+
 
